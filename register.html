@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Halaman Register</title>
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+
+  <style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f0f4f2, #e6f1e8); /* putih-hijau lembut */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: #ffffff; /* dominan putih */
+  width: 320px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* shadow lebih soft */
+  text-align: center;
+}
+
+h2 {
+  color: #2a5d3e; /* hijau gelap untuk judul */
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #cce2cd; /* border hijau lembut */
+}
+
+button {
+  width: 95%;
+  padding: 10px;
+  border: none;
+  background: #4caf71; /* hijau tombol */
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #3b8c57; /* hijau lebih gelap saat hover */
+}
+
+a {
+  color: #4caf71; /* link hijau */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Register</h2>
+    <input type="text" id="regUser" placeholder="Username" required><br>
+    <input type="password" id="regPass" placeholder="Password" required><br>
+    <button onclick="register()">Daftar</button>
+    <p>Sudah punya akun? <a href="login.html">Login</a></p>
+    <p id="regError" style="color:red;"></p>
+  </div>
+
+  <script>
+    function register() {
+      const user = document.getElementById("regUser").value;
+      const pass = document.getElementById("regPass").value;
+      const error = document.getElementById("regError");
+
+      if (user === "" || pass === "") {
+        error.textContent = "Isi semua kolom!";
+        return;
+      }
+
+      if (localStorage.getItem(user)) {
+        error.textContent = "Username sudah terdaftar!";
+      } else {
+        localStorage.setItem(user, pass);
+        alert("Pendaftaran berhasil! Silakan login.");
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamu Tidak Harus Sempurna untuk Bahagia 🌻 - EASEY</title>
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #f9fbf8;
+      --text-color: #2d3e35;
+      --accent-color: #a5cba0;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #fff;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img {
+      height: 55px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #355c4d;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 25px;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      background: #355c4d;
+      height: 3px;
+      width: 25px;
+      border-radius: 5px;
+    }
+
+    .article-container {
+      max-width: 900px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 40px 30px;
+      line-height: 1.8;
+    }
+
+    .article-container h1 {
+      font-size: 2rem;
+      color: #355c4d;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .article-container h2 {
+      margin-top: 25px;
+      color: #3e5d48;
+      font-size: 1.3rem;
+    }
+
+    .article-container p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      color: #6ea681;
+      font-weight: 600;
+    }
+
+    .quote {
+      background: #f1f7f0;
+      border-left: 5px solid var(--accent-color);
+      padding: 20px 25px;
+      border-radius: 12px;
+      font-style: italic;
+      color: #355c4d;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      text-align: left ;
+      line-height: 1.8;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .quote:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: var(--accent-color);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #8bbf86;
+    }
+
+    footer {
+      text-align: center;
+      background: #fff;
+      padding: 20px;
+      font-size: 14px;
+      color: #4b5d52;
+      border-top: 1px solid #e5e5e5;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        background: #fff;
+        flex-direction: column;
+        width: 180px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        display: none;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" alt="Logo" />
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="navMenu">
+      <a href="easespace.html" class="nav-link">Home</a>
+      <a href="selfcare.html" class="nav-link">Self-Care</a>
+      <a href="artikel.html" class="nav-link active">Artikel</a>
+      <a href="index.html" class="nav-link">Ease Space</a>
+    </nav>
+  </header>
+
+  <main class="article-container">
+    <h1>Kamu Tidak Harus Sempurna untuk Bahagia</h1>
+
+    <p>Di dunia yang serba cepat dan penuh tuntutan, banyak dari kita merasa harus selalu menjadi sempurna, seperti harus pintar, harus cantik, harus sukses, harus kuat. Seolah kebahagiaan hanya datang jika semua itu tercapai. Padahal, kebenarannya sederhana: kamu tidak harus sempurna untuk bahagia.</p>
+
+    <h2>1. Kesempurnaan Itu Ilusi</h2>
+    <p>Tidak ada manusia yang benar-benar sempurna. Media sosial sering menampilkan kehidupan yang tampak ideal, wajah tanpa cela, karier cemerlang, dan senyum tanpa beban. Tapi tidak tahu bagaimana saat di balik layar, ketika mereka sedang mengejar perjuangannya masing-masing.</p>
+    <p>Mengejar kesempurnaan hanya akan membuatmu terjebak dalam perbandingan dan lupa menikmati proses hidupmu sendiri.</p>
+
+    <h2>2. Bahagia Datang dari Penerimaan</h2>
+    <p>Kebahagiaan sejati tidak lahir dari pencapaian besar, tetapi dari <span class="highlight">penerimaan diri</span>. Saat kamu berhenti memaksa diri untuk selalu terlihat kuat dan mulai menerima bahwa kamu bisa salah, bisa gagal, dan bisa lemah, di situlah kedamaian dimulai.</p>
+    <p>Menerima diri bukan berarti berhenti berkembang, tetapi berdamai dengan proses.</p>
+
+    <h2>3. Kesalahan Bukan Akhir, Tapi sebagai Pelajaran</h2>
+    <p>Sering kali, kita merasa gagal karena membuat kesalahan. Padahal, setiap kegagalan adalah pelajaran yang membentuk versi terbaik dari dirimu.</p>
+    <p>Tidak perlu malu karena pernah jatuh, justru di situlah kamu belajar bangkit, mengenal dirimu lebih dalam, dan memahami apa arti bahagia yang sebenarnya.</p>
+
+    <h2>4. Lepaskan Tekanan untuk Menjadi Sempurna</h2>
+    <p>Kamu tidak harus selalu produktif. Tidak harus selalu kuat. Tidak harus selalu benar. Terkadang, cukup dengan menjadi dirimu sendiri tanpa topeng apa pun sudah lebih dari cukup.</p>
+    <p>Berhenti mengukur nilai dirimu dari penilaian orang lain, karena yang tahu perjuanganmu sepenuhnya hanyalah dirimu sendiri.</p>
+
+    <div class="quote">
+    Bahagia tidak membutuhkan kesempurnaan, hanya kejujuran untuk menerima diri sendiri apa adanya. Beranilah untuk menjadi manusia biasa yang sedang belajar.<br><br>
+    Tidak apa-apa jika belum sampai di tujuan, tidak apa-apa jika masih berantakan kamu tetap berharga, kamu tetap pantas bahagia.<br><br>
+
+      🌻 “Kamu tidak harus sempurna untuk layak dicintai, dan tidak harus selalu kuat untuk tetap berharga.”
+    </div>
+
+    <a href="artikel.html" class="back-btn">← Kembali ke Artikel</a>
+  </main>
+
+  <footer>
+    <p>© 2025 Self-Love Journey | By EASEY Group</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

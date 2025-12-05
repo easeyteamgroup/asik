@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Halaman Login</title>
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+
+  <style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f0f4f2, #e8f1e9); /* background lembut putih-hijau */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: #ffffff; /* dominan putih */
+  width: 320px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* shadow lebih soft */
+  text-align: center;
+}
+
+h2 {
+  color: #2a5d3e; /* hijau gelap untuk judul */
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #cce2cd; /* border hijau lembut */
+}
+
+button {
+  width: 95%;
+  padding: 10px;
+  border: none;
+  background: #4caf71; /* hijau utama tombol */
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #3b8c57; /* hijau lebih gelap saat hover */
+}
+
+a {
+  color: #4caf71; /* hijau link */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Login</h2>
+    <input type="text" id="loginUser" placeholder="Username" required><br>
+    <input type="password" id="loginPass" placeholder="Password" required><br>
+    <button onclick="login()">Login</button>
+    <p>Belum punya akun? <a href="register.html">Daftar</a></p>
+    <p id="loginError" style="color:red;"></p>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("loginUser").value;
+      const pass = document.getElementById("loginPass").value;
+      const error = document.getElementById("loginError");
+      const savedPass = localStorage.getItem(user);
+
+      if (savedPass && pass === savedPass) {
+        localStorage.setItem("loggedInUser", user);
+        window.location.href = "dashboard.html";
+      } else {
+        error.textContent = "Username atau password salah!";
+      }
+    }
+
+    // Jika user sudah login sebelumnya
+    window.onload = function() {
+      const loggedInUser = localStorage.getItem("loggedInUser");
+      if (loggedInUser) {
+        window.location.href = "dashboard.html";
+      }
+    };
+  </script>
+</body>
+</html>

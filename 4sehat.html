@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4 Sehat 5 Sempurna — EASEY Balance</title>
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+
+
+  <style>
+    :root {
+      --bg-color: #f8f9f5;
+      --text-color: #2c2c2c;
+      --primary-color: #e3f1e0;
+      --accent-color: #b7d8b2;
+      --button-color: #cfe3cc;
+      --button-text: #1e1e1e;
+      --light-green: #e9f3e7;
+      --border-color: #dfe8da;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      line-height: 1.6;
+      transition: 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img {height: 55px;}
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: var(--button-color);
+      color: var(--button-text);
+    }
+
+    /* === HAMBURGER (DEFAULT HIDDEN) === */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      width: 28px;
+      height: 22px;
+    }
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: #396b45;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* === RESPONSIVE NAV (DROPDOWN) === */
+    @media (max-width: 800px) {
+      .hamburger {display: flex;}
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 30px;
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 15px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        flex-direction: column;
+        gap: 0;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease;
+      }
+      nav.active {
+        max-height: 200px;
+      }
+      .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 12px 25px;
+        border-radius: 0;
+      }
+      .nav-link:hover {
+        background: var(--light-green);
+      }
+    }
+
+    /* === HERO === */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 60px 8%;
+      background: linear-gradient(180deg, #e9f8ef, #ffffff);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .hero-text {max-width: 550px; animation: fadeInDown 1s ease;}
+    .hero-text h1 {font-size: 2.2em; color: #1f4d2c; margin-bottom: 12px;}
+    .hero-text p {font-size: 1.05em; color: #5e7262; line-height: 1.7;}
+    .hero img {
+      width: 340px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      animation: fadeInRight 1.2s ease;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 25px;
+    }
+
+    .section {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 35px;
+      margin-bottom: 40px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      animation: fadeIn 1s ease;
+    }
+
+    h2 {text-align: center; color: #1f4d2c; margin-bottom: 25px;}
+
+    .four-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: var(--light-green);
+      border-radius: 15px;
+      padding: 25px 20px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.08);}
+    .card h3 {color: #396b45; margin-bottom: 6px;}
+    .card p {color: #5e7262;}
+
+    .btn {
+      background: var(--button-color);
+      color: var(--button-text);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 25px;
+    }
+    .btn:hover {background: var(--accent-color);}
+
+    .quote-box {
+      background: var(--light-green);
+      border-left: 8px solid var(--accent-color);
+      padding: 25px;
+      font-style: italic;
+      color: #444;
+      border-radius: 12px;
+      margin-top: 25px;
+      transition: opacity 0.3s ease;
+      text-align: center;
+    }
+
+    .checklist-item {
+      background: #fff;
+      padding: 14px 20px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .checklist-item:hover {background: var(--light-green);}
+    .checklist-item.checked {background: var(--accent-color); border-left: 4px solid #7da87b;}
+
+    .progress-container {
+      width: 100%;
+      background: var(--light-green);
+      border-radius: 20px;
+      height: 20px;
+      margin-top: 25px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--accent-color);
+      width: 0%;
+      border-radius: 20px;
+      transition: width 0.4s ease;
+    }
+
+    @keyframes fadeIn {from {opacity:0; transform:translateY(15px);} to {opacity:1; transform:translateY(0);}}
+    @keyframes fadeInDown {from {opacity:0; transform:translateY(-20px);} to {opacity:1; transform:translateY(0);}}
+    @keyframes fadeInRight {from {opacity:0; transform:translateX(30px);} to {opacity:1; transform:translateX(0);}}
+
+    footer {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 20px;
+      font-size: 14px;
+      color: #4b5d52;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .confetti {
+      position: fixed;
+      top: -10px;
+      border-radius: 50%;
+      animation: fall 3s ease-in forwards;
+      opacity: 0.9;
+      z-index: 999;
+    }
+    @keyframes fall {
+      0% {transform: translateY(0) rotate(0deg); opacity: 1;}
+      100% {transform: translateY(100vh) rotate(720deg); opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" alt="Logo" /></div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+    <nav id="navMenu">
+            <a href="easespace.html" class="nav-link">Home</a>
+            <a href="selfcare.html" class="nav-link">Self-Care</a>
+            <a href="4sehat.html" class="nav-link">EatWell</a>
+            <a href="artikel.html" class="nav-link">Artikel</a>
+            <a href="index.html" class="nav-link">Ease Space</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>4 Sehat 5 Sempurna, Pikiran Tenang.</h1>
+      <p>Menjaga pola makan seimbang bukan cuma tentang fisik, tapi juga untuk kestabilan mood, fokus, dan rasa syukur.</p>
+    </div>
+    <img src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Healthy Mind Illustration">
+  </section>
+
+  <div class="container">
+    <div class="section">
+      <h2>Empat Sehat Versi Modern</h2>
+      <div class="four-grid">
+        <div class="card"><h3>Karbohidrat Kompleks</h3><p>Nasi merah, oat, kentang rebus, roti gandum.</p></div>
+        <div class="card"><h3>Protein</h3><p>Tempe, tahu, ikan, dan ayam untuk bantu mood stabil.</p></div>
+        <div class="card"><h3>Sayur & Buah</h3><p>Kaya vitamin dan antioksidan untuk stres rendah.</p></div>
+        <div class="card"><h3>Susu & Pengganti</h3><p>Sumber kalsium & vitamin D bantu tidur nyenyak.</p></div>
+      </div>
+    </div>
+
+    <div class="section" style="text-align:center;">
+      <h2>Yang Kelima: Penyempurna </h2>
+      <p>Istirahat cukup, olahraga ringan, journaling, dan koneksi sosial adalah “gizi batin” untuk jiwa yang tenang.</p>
+    </div>
+
+    <div class="section">
+      <h2>Quotes Sehat Hari Ini</h2>
+      <div class="quote-box" id="quoteText">"Tubuhmu adalah rumah bagi jiwamu — rawat keduanya dengan cinta dan kesadaran."</div>
+      <div style="text-align:center;">
+        <button class="btn" id="quoteBtn">Quote Baru</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Checklist Hidup Sehat</h2>
+      <div class="checklist-item" onclick="toggleCheck(this)">Minum 8 gelas air</div>
+      <div class="checklist-item" onclick="toggleCheck(this)">Makan buah & sayur</div>
+      <div class="checklist-item" onclick="toggleCheck(this)">Tidur 7 jam</div>
+      <div class="checklist-item" onclick="toggleCheck(this)">Olahraga ringan</div>
+      <div class="checklist-item" onclick="toggleCheck(this)">Meditasi 5 menit</div>
+      <div class="checklist-item" onclick="toggleCheck(this)">Hindari scroll berlebihan</div>
+
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <p style="text-align:center; margin-top:10px; color:#5e7262;">
+        <span id="progressText">0%</span> tercapai hari ini.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Self-Love Journey | By EASEY Group
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-link").forEach(link =>
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+      })
+    );
+
+    // === QUOTES ===
+    const quotes = [
+      "Kesehatan adalah bentuk cinta terbaik pada diri sendiri.",
+      "Pikiran tenang datang dari tubuh yang terawat.",
+      "Makanlah untuk hidup, bukan hidup untuk makan.",
+      "Sehat bukan tentang kurus — tapi tentang bahagia di tubuhmu sendiri.",
+      "Langkah kecil menuju sehat tetap berarti besar."
+    ];
+    document.getElementById('quoteBtn').onclick = () => {
+      const box = document.getElementById('quoteText');
+      const q = quotes[Math.floor(Math.random() * quotes.length)];
+      box.style.opacity = 0;
+      setTimeout(() => {
+        box.textContent = `"${q}"`;
+        box.style.opacity = 1;
+      }, 400);
+    };
+
+    // === CHECKLIST & PROGRESS ===
+    function toggleCheck(item) {
+      item.classList.toggle('checked');
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const items = document.querySelectorAll('.checklist-item');
+      const checked = document.querySelectorAll('.checklist-item.checked');
+      const percent = Math.round((checked.length / items.length) * 100);
+      document.getElementById('progressBar').style.width = percent + '%';
+      document.getElementById('progressText').textContent = percent + '%';
+
+      if (percent === 100) {
+        showCelebration();
+      }
+    }
+
+    // === CELEBRATION ===
+    function showCelebration() {
+      const popup = document.createElement('div');
+      popup.innerHTML = "<b>Selamat!</b><br>Kamu berhasil menyelesaikan semuanya hari ini!";
+      Object.assign(popup.style, {
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        background: "#ffffff",
+        padding: "30px 50px",
+        borderRadius: "20px",
+        boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+        textAlign: "center",
+        fontSize: "18px",
+        color: "#396b45",
+        zIndex: "999",
+        opacity: "0",
+        transition: "opacity 0.4s ease"
+      });
+      document.body.appendChild(popup);
+      setTimeout(() => popup.style.opacity = "1", 100);
+
+      for (let i = 0; i < 30; i++) {
+        const conf = document.createElement('div');
+        conf.classList.add('confetti');
+        conf.style.left = Math.random() * 100 + "%";
+        conf.style.background = ["#b6e2b5", "#e3f1e0", "#cfe3cc", "#ffffff"][Math.floor(Math.random() * 4)];
+        conf.style.width = conf.style.height = Math.random() * 8 + 6 + "px";
+        conf.style.animationDelay = Math.random() * 0.5 + "s";
+        document.body.appendChild(conf);
+        setTimeout(() => conf.remove(), 3500);
+      }
+
+      setTimeout(() => popup.remove(), 4000);
+    }
+  </script>
+</body>
+</html>

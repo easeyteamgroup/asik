@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health - EASEY</title>
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+
+  <style>
+    /* Reset dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #f9fbf8;
+      --text-color: #2d3e35;
+      --primary-color: #d7e9d0;
+      --accent-color: #a5cba0;
+      --button-color: #cfe3cc;
+      --button-text: #1e1e1e;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background: #fff;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img {
+      height: 55px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #080808;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 25px;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: var(--accent-color);
+      color: #000000;
+    }
+
+    /* MENU RESPONSIVE */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      background: #355c4d;
+      height: 3px;
+      width: 25px;
+      border-radius: 5px;
+    }
+
+    /* ARTIKEL */
+    main.artikel-container {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    main h1 {
+      color: #355c4d;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    main p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .filter-buttons {
+      margin-bottom: 25px;
+    }
+
+    .filter-btn {
+      background: var(--button-color);
+      border: none;
+      color: var(--button-text);
+      padding: 8px 18px;
+      margin: 6px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    .artikel-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .artikel-card {
+      background: var(--primary-color);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: 0.3s;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .artikel-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .artikel-card h3 {
+      color: #355c4d;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .artikel-card p {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex-grow: 1; /* menjaga tinggi agar tombol sejajar */
+    }
+
+    .btn {
+      background: var(--accent-color);
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      align-self: center;
+      margin-top: auto;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #8bbf86;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      background: #fff;
+      padding: 20px;
+      font-size: 14px;
+      color: #4b5d52;
+      border-top: 1px solid #e5e5e5;
+      margin-top: auto;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        background: #fff;
+        flex-direction: column;
+        width: 180px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        display: none;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" alt="Logo" />
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="navMenu">
+      <a href="easespace.html" class="nav-link">Home</a>
+      <a href="selfcare.html" class="nav-link">Self-Care</a>
+      <a href="4sehat.html" class="nav-link">EatWell</a>
+      <a href="artikel.html" class="nav-link active">Artikel</a>
+      <a href="index.html" class="nav-link">Ease Space</a>
+    </nav>
+  </header>
+
+  <main class="artikel-container">
+    <h1>Artikel & Tips Self-Love</h1>
+    <p>Temukan inspirasi dan panduan untuk menjaga kesehatan mental serta mencintai diri sendiri.</p>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-category="all">Semua</button>
+      <button class="filter-btn" data-category="motivasi">Motivasi</button>
+      <button class="filter-btn" data-category="selfcare">Self-Care</button>
+      <button class="filter-btn" data-category="mental">Mental Health</button>
+    </div>
+
+    <section id="artikelList" class="artikel-list"></section>
+  </main>
+
+  <footer>
+    <p>© 2025 Self-Love Journey | By EASEY Group</p>
+  </footer>
+
+  <script>
+    const articles = [
+      {
+        title: "Memahami Tafsir Al-Qur'an sebagai Self-Healing",
+        category: "selfcare",
+        desc: "Dalam kehidupan modern yang penuh tekanan, banyak orang mencari cara untuk menenangkan hati dan menyembuhkan luka batin.",
+        link: "artikel1.html"
+      },
+      {
+        title: "Menjaga Batasan Pertemanan demi Kesehatan Mental",
+        category: "selfcare",
+        desc: "Dalam kehidupan sehari-hari, pertemanan adalah bagian penting dari kebahagiaan dan dukungan emosional. ",
+        link: "artikel2.html"
+      },
+      {
+        title: "Menjaga Kesehatan Mental di Era Digital",
+        category: "mental",
+        desc: "Di era digital seperti sekarang, hampir semua aspek kehidupan terhubung dengan teknologi.",
+        link: "artikel3.html"
+      },
+      {
+        title: "Motivasi Saat Kamu Lelah dan Ingin Menyerah",
+        category: "motivasi",
+        desc: "Setiap orang pasti pernah merasa lelah, bukan hanya secara fisik, tapi juga batin.",
+        link: "artikel4.html"
+      },
+      {
+        title: "Merawat Diri Sebagai Bentuk Self-Love",
+        category: "selfcare",
+        desc: "Di tengah kesibukan dan tekanan hidup, banyak orang lupa satu hal penting: merawat diri sendiri.",
+        link: "artikel5.html"
+      },
+      {
+        title: "Kamu Tidak Harus Sempurna untuk Bahagia",
+        category: "motivasi",
+        desc: "Di dunia yang serba cepat dan penuh tuntutan, banyak dari kita merasa harus selalu menjadi sempurna, harus pintar, harus cantik, harus sukses, harus kuat.",
+        link: "artikel6.html"
+      },
+    ];
+
+    const list = document.getElementById('artikelList');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    function renderArticles(category = "all") {
+      list.innerHTML = "";
+      const filtered = category === "all" ? articles : articles.filter(a => a.category === category);
+
+      filtered.forEach(a => {
+        const card = document.createElement('div');
+        card.className = 'artikel-card';
+        card.innerHTML = `
+          <h3>${a.title}</h3>
+          <p>${a.desc}</p>
+          <a href="${a.link}" class="btn">Baca Selengkapnya</a>
+        `;
+        list.appendChild(card);
+      });
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        btn.classList.add('active');
+        renderArticles(btn.dataset.category);
+      });
+    });
+
+    // Toggle menu mobile
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    renderArticles();
+  </script>
+</body>
+</html>

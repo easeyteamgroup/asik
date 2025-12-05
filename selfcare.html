@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Self-Care & Pengingat Haid - EASEY</title>
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+
+
+  <!-- =========================
+       EASEY THEME (GREEN)
+  ========================== -->
+  <style>
+    :root {
+      --bg-color: #f8f9f5;
+      --text-color: #2c2c2c;
+      --primary-color: #e3f1e0;
+      --accent-color: #b7d8b2;
+      --button-color: #cfe3cc;
+      --button-text: #1e1e1e;
+      --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      --muted: #6f7a6e;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #f1f6f1, var(--bg-color));
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* =========================
+         HEADER & NAVIGATION
+    ========================== */
+  /* === HEADER === */
+  header {
+    background: var(--white);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .logo img {
+    height: 46px;
+    width: auto;
+  }
+
+  /* === NAVIGATION === */
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: 0.25s;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: var(--button-color);
+    color: var(--button-text);
+  }
+
+  /* === MENU TOGGLE (Hamburger) === */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    display: block;
+    height: 3px;
+    background: var(--text-color);
+    border-radius: 2px;
+    transition: 0.25s;
+  }
+
+  /* === Responsive (Mobile) === */
+  @media (max-width: 860px) {
+    .menu-toggle {
+      display: flex;
+    }
+
+    nav {
+      position: absolute;
+      top: 68px;
+      right: 20px;
+      background: var(--white);
+      flex-direction: column;
+      width: 200px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+    }
+
+    nav.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .nav-link {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f2f5f2;
+    }
+
+    .nav-link:last-child {
+      border-bottom: none;
+    }
+
+    /* Animasi icon burger */
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+  }
+
+    /* =========================
+         PAGE LAYOUT
+    ========================== */
+    .container {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 18px;
+      width: 95%;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      color: #18362b;
+      margin-bottom: 6px;
+    }
+
+    p.lead {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    /* === Cards === */
+    .card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: var(--card-shadow);
+    }
+
+    /* =========================
+         SELF-CARE CHECKLIST
+    ========================== */
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 12px;
+    }
+
+    .checklist {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .checklist-item {
+      background: #fbfdfb;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #edf3ea;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .checklist-item:hover {
+      transform: translateY(-2px);
+    }
+
+    .checklist-item.checked {
+      background: var(--accent-color);
+      border-left: 5px solid #628b5c;
+      font-weight: 600;
+    }
+
+    .progress-container {
+      margin-top: 12px;
+    }
+
+    .progress-bar {
+      background: #edf4ec;
+      height: 18px;
+      border-radius: 9px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 9px;
+      background: var(--accent-color);
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      width: 0%;
+      transition: width 0.3s;
+      color: var(--text-color);
+    }
+
+    /* =========================
+         CALENDAR & TRACKER
+    ========================== */
+    .controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+      align-items: center;
+    }
+
+    .controls input[type="date"],
+    .controls input[type="number"],
+    .controls select,
+    .controls input[type="text"] {
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+
+    .btn {
+      background: var(--button-color);
+      color: var(--button-text);
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--button-text);
+      border: 1px solid #e6efe6;
+    }
+
+    .month {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+
+    .day-name {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .date-cell {
+      min-height: 68px;
+      padding: 8px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, var(--white), #fbfffb);
+      border: 1px solid #f3faf3;
+      position: relative;
+    }
+
+    .date-cell.today {
+      outline: 2px solid #d6efda;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .dot.period {
+      background: #4c8b57;
+    }
+
+    .dot.ovulation {
+      background: #ffd166;
+    }
+
+    .small {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* =========================
+         RIGHT COLUMN (STATS + NOTES)
+    ========================== */
+    .right-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      flex: 1;
+      background: linear-gradient(180deg, var(--white), #fbfffb);
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .stat .num {
+      font-weight: 700;
+      font-size: 18px;
+      color: #184d36;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 76px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      resize: vertical;
+    }
+
+    .notes-list {
+      max-height: 220px;
+      overflow: auto;
+      margin-top: 8px;
+    }
+
+    .note-item {
+      padding: 10px;
+      border-radius: 8px;
+      background: #fff;
+      margin-bottom: 8px;
+      border: 1px solid #f2faf2;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 20px;
+      font-size: 14px;
+      color: #4b5d52;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    @media (max-width: 920px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<!-- =========================
+       BODY CONTENT
+========================== -->
+<body>
+  <!-- === HEADER === -->
+<!-- === HEADER === -->
+  <header>
+    <div class="logo">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" alt="EASEY Logo">
+    </div>
+
+    <!-- Hamburger Menu (Mobile) -->
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav id="navbar">
+      <a href="easespace.html" class="nav-link">Home</a>
+      <a href="selfcare.html" class="nav-link active">Self-Care</a>
+      <a href="4sehat.html" class="nav-link">EatWell</a>
+      <a href="artikel.html" class="nav-link">Artikel</a>
+      <a href="index.html" class="nav-link">Ease Space</a>
+    </nav>
+  </header>
+
+  <!-- === MAIN CONTAINER === -->
+  <main class="container">
+    <h1>Aktivitas Self-Care & Pengingat Haid</h1>
+    <p class="lead">
+      Lakukan tindakan kecil untuk menjaga keseimbangan — dan simpan riwayat haid, gejala, serta jurnal harianmu.
+    </p>
+
+    <!-- === GRID LAYOUT === -->
+    <div class="grid">
+      <!-- LEFT COLUMN -->
+      <section>
+        <!-- === SELF-CARE CHECKLIST === -->
+        <div id="selfcare" class="card" style="margin-bottom:18px">
+          <div class="section-title">
+            <div>
+              <h2 style="margin:0;font-size:18px">Aktivitas Self-Care</h2>
+              <div class="small">Langkah sederhana setiap hari untuk merawat diri.</div>
+            </div>
+            <div style="text-align:right">
+              <button id="resetChecklist" class="btn ghost">Reset Checklist</button>
+            </div>
+          </div>
+
+          <ul class="checklist" id="checklist">
+            <li class="checklist-item" data-index="0">Meditasi 10 menit</li>
+            <li class="checklist-item" data-index="1">Journaling hal-hal yang kamu syukuri</li>
+            <li class="checklist-item" data-index="2">Jalan sore sambil dengar lagu favorit</li>
+            <li class="checklist-item" data-index="3">Minum teh hangat tanpa gangguan gadget</li>
+            <li class="checklist-item" data-index="4">Tidur cukup & hindari overthinking</li>
+            <li class="checklist-item" data-index="5">Ucapkan Terima Kasih Pada Diri Sendiri</li>
+          </ul>
+
+          <div class="progress-container">
+            <p><strong>Progress Hari Ini:</strong></p>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill">0%</div>
+            </div>
+          </div>
+        </div>
+        <!-- === CALENDAR & PERIOD TRACKER === -->
+        <div id="periodTracker" class="card">
+          <div class="section-title">
+            <h2 style="margin:0;font-size:18px">Pengingat Haid</h2>
+          </div>
+
+          <!-- === Controls (Input Form) === -->
+          <div class="controls">
+            <label for="lastPeriod">Tanggal Terakhir:</label>
+            <input type="date" id="lastPeriod" />
+
+            <label for="cycleLength">Siklus (hari):</label>
+            <input type="number" id="cycleLength" value="28" min="20" max="40" />
+
+            <button id="generateBtn" class="btn">Hitung & Tampilkan</button>
+          </div>
+
+          <!-- === Calendar Header === -->
+          <div class="month">
+            <button id="prevMonth" class="btn ghost">‹</button>
+            <h3 id="monthYear"></h3>
+            <button id="nextMonth" class="btn ghost">›</button>
+          </div>
+
+          <!-- === Calendar Grid === -->
+          <div class="calendar" id="calendar"></div>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN -->
+      <aside class="right-section">
+        <!-- === STATISTICS === -->
+        <div class="card">
+          <h3 style="margin-bottom:10px;font-size:18px">Ringkasan Siklus</h3>
+          <div class="stats">
+            <div class="stat">
+              <div class="num" id="nextPeriod">--</div>
+              <div class="small">Perkiraan Haid Berikutnya</div>
+            </div>
+            <div class="stat">
+              <div class="num" id="nextOvulation">--</div>
+              <div class="small">Prediksi Ovulasi</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- === NOTES / JOURNAL === -->
+        <div class="card">
+          <h3 style="margin-bottom:10px;font-size:18px">Catatan Harian</h3>
+          <textarea id="noteInput" placeholder="Tuliskan perasaanmu hari ini..."></textarea>
+          <button id="addNote" class="btn" style="margin-top:8px">Simpan Catatan</button>
+
+          <div class="notes-list" id="notesList"></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- === FOOTER === -->
+  <footer>
+    &copy; 2025 Self-Love Journey | By EASEY Group
+  </footer>
+
+  <!-- =========================
+       JAVASCRIPT SECTION
+  ========================== -->
+  <script>
+    
+    // === NAVIGATION TOGGLE FUNCTIONALITY ===
+    const menuToggle = document.getElementById('menuToggle');
+    const navbar = document.getElementById('navbar');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navbar.classList.toggle('active');
+    });
+
+    // Tutup menu otomatis saat salah satu link diklik
+    document.querySelectorAll('#navbar a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navbar.classList.remove('active');
+      });
+    });
+
+    /* === SELF-CARE CHECKLIST LOGIC === */
+    const checklistItems = document.querySelectorAll('.checklist-item');
+    const progressFill = document.getElementById('progressFill');
+    const resetChecklist = document.getElementById('resetChecklist');
+
+    function updateProgress() {
+      const checkedCount = document.querySelectorAll('.checklist-item.checked').length;
+      const total = checklistItems.length;
+      const percent = Math.round((checkedCount / total) * 100);
+      progressFill.style.width = percent + '%';
+      progressFill.textContent = percent + '%';
+      localStorage.setItem('checklistProgress', percent);
+    }
+
+    checklistItems.forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('checked');
+        saveChecklistState();
+        updateProgress();
+      });
+    });
+
+    resetChecklist.addEventListener('click', () => {
+      checklistItems.forEach(item => item.classList.remove('checked'));
+      saveChecklistState();
+      updateProgress();
+    });
+
+    function saveChecklistState() {
+      const states = Array.from(checklistItems).map(i => i.classList.contains('checked'));
+      localStorage.setItem('checklistState', JSON.stringify(states));
+    }
+
+    function loadChecklistState() {
+      const saved = JSON.parse(localStorage.getItem('checklistState'));
+      if (saved) {
+        checklistItems.forEach((item, index) => {
+          if (saved[index]) item.classList.add('checked');
+        });
+      }
+      updateProgress();
+    }
+
+    loadChecklistState();
+
+    /* === PERIOD TRACKER LOGIC === */
+    const calendarEl = document.getElementById('calendar');
+    const monthYearEl = document.getElementById('monthYear');
+    const lastPeriodInput = document.getElementById('lastPeriod');
+    const cycleInput = document.getElementById('cycleLength');
+    const nextPeriodEl = document.getElementById('nextPeriod');
+    const nextOvulationEl = document.getElementById('nextOvulation');
+
+    const today = new Date();
+    let currentMonth = today.getMonth();
+    let currentYear = today.getFullYear();
+
+    document.getElementById('prevMonth').addEventListener('click', () => {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      renderCalendar();
+    });
+
+    document.getElementById('nextMonth').addEventListener('click', () => {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      renderCalendar();
+    });
+
+    document.getElementById('generateBtn').addEventListener('click', () => {
+      renderCalendar();
+      savePeriodData();
+    });
+
+    function savePeriodData() {
+      localStorage.setItem('lastPeriod', lastPeriodInput.value);
+      localStorage.setItem('cycleLength', cycleInput.value);
+    }
+
+    function loadPeriodData() {
+      const savedDate = localStorage.getItem('lastPeriod');
+      const savedCycle = localStorage.getItem('cycleLength');
+      if (savedDate) lastPeriodInput.value = savedDate;
+      if (savedCycle) cycleInput.value = savedCycle;
+      renderCalendar();
+    }
+
+    function renderCalendar() {
+      calendarEl.innerHTML = '';
+
+      const monthNames = [
+        'Januari','Februari','Maret','April','Mei','Juni',
+        'Juli','Agustus','September','Oktober','November','Desember'
+      ];
+
+      monthYearEl.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+      const firstDay = new Date(currentYear, currentMonth, 1);
+      const lastDay = new Date(currentYear, currentMonth + 1, 0);
+      const startDay = firstDay.getDay();
+      const totalDays = lastDay.getDate();
+
+      // === Day Names Header ===
+      const dayNames = ['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
+      dayNames.forEach(d => {
+        const dayEl = document.createElement('div');
+        dayEl.classList.add('day-name');
+        dayEl.textContent = d;
+        calendarEl.appendChild(dayEl);
+      });
+
+      // === Empty Cells Before First Day ===
+      for (let i = 0; i < startDay; i++) {
+        const empty = document.createElement('div');
+        calendarEl.appendChild(empty);
+      }
+
+      // === Generate Calendar Days ===
+      const lastPeriod = new Date(lastPeriodInput.value);
+      const cycleLength = parseInt(cycleInput.value) || 28;
+      const ovulationOffset = 14;
+      const nextPeriodDate = new Date(lastPeriod);
+      nextPeriodDate.setDate(nextPeriodDate.getDate() + cycleLength);
+      const ovulationDate = new Date(nextPeriodDate);
+      ovulationDate.setDate(nextPeriodDate.getDate() - ovulationOffset);
+
+      nextPeriodEl.textContent = nextPeriodDate.toLocaleDateString('id-ID');
+      nextOvulationEl.textContent = ovulationDate.toLocaleDateString('id-ID');
+
+      for (let i = 1; i <= totalDays; i++) {
+        const date = new Date(currentYear, currentMonth, i);
+        const cell = document.createElement('div');
+        cell.classList.add('date-cell');
+        cell.innerHTML = `<strong>${i}</strong>`;
+
+        if (
+          date.getDate() === today.getDate() &&
+          date.getMonth() === today.getMonth() &&
+          date.getFullYear() === today.getFullYear()
+        ) {
+          cell.classList.add('today');
+        }
+
+        if (date.toDateString() === nextPeriodDate.toDateString()) {
+          const dot = document.createElement('span');
+          dot.classList.add('dot', 'period');
+          cell.appendChild(dot);
+        }
+
+        if (date.toDateString() === ovulationDate.toDateString()) {
+          const dot = document.createElement('span');
+          dot.classList.add('dot', 'ovulation');
+          cell.appendChild(dot);
+        }
+
+        calendarEl.appendChild(cell);
+      }
+    }
+
+    loadPeriodData();
+
+    /* === JOURNAL NOTES === */
+    const noteInput = document.getElementById('noteInput');
+    const addNoteBtn = document.getElementById('addNote');
+    const notesList = document.getElementById('notesList');
+
+    addNoteBtn.addEventListener('click', () => {
+      const text = noteInput.value.trim();
+      if (!text) return;
+      const timestamp = new Date().toLocaleString('id-ID');
+      const note = { text, timestamp };
+      addNoteToList(note);
+      saveNote(note);
+      noteInput.value = '';
+    });
+
+    function addNoteToList(note) {
+      const item = document.createElement('div');
+      item.classList.add('note-item');
+      item.innerHTML = `
+        <div>
+          <div>${note.text}</div>
+          <div class="small">${note.timestamp}</div>
+        </div>
+        <button class="btn ghost" style="padding:6px 10px;">Hapus</button>
+      `;
+      item.querySelector('button').addEventListener('click', () => {
+        item.remove();
+        removeNote(note.timestamp);
+      });
+      notesList.prepend(item);
+    }
+
+    function saveNote(note) {
+      const notes = JSON.parse(localStorage.getItem('notes') || '[]');
+      notes.push(note);
+      localStorage.setItem('notes', JSON.stringify(notes));
+    }
+
+    function loadNotes() {
+      const notes = JSON.parse(localStorage.getItem('notes') || '[]');
+      notes.forEach(addNoteToList);
+    }
+
+    function removeNote(timestamp) {
+      const notes = JSON.parse(localStorage.getItem('notes') || '[]');
+      const updated = notes.filter(n => n.timestamp !== timestamp);
+      localStorage.setItem('notes', JSON.stringify(updated));
+    }
+
+    loadNotes();
+
+  </script>
+</body>
+</html>
+

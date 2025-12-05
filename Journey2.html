@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health - EASEY</title>
+    <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-color: #f8f9f5;
+            --text-color: #2c2c2c;
+            --primary-color: #e3f1e0;
+            --accent-color: #b7d8b2;
+            --button-color: #cfe3cc;
+            --button-text: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        header {
+            background: #fff;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--button-color);
+            color: var(--button-text);
+        }
+
+        /* 🔹 HAMBURGER MENU */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 25px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #333;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Animasi hamburger jadi X */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+
+        /* DROPDOWN MENU (HP) */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 65px;
+                right: 20px;
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                width: 150px;
+                padding: 10px 0;
+                animation: fadeIn 0.3s ease;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            .nav-link {
+                padding: 10px 15px;
+                width: 100%;
+                text-align: left;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CONTENT */
+        .journey-container {
+            max-width: 700px;
+            margin: 60px auto;
+            text-align: center;
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+        }
+
+        .journey-container h1 {
+            font-size: 2rem;
+            color: #3d6b5d;
+            margin-bottom: 10px;
+        }
+
+        .journey-container p {
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .journal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .journal-form input,
+        .journal-form textarea,
+        .journal-form select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .journal-form label {
+            text-align: left;
+            font-weight: 500;
+            margin-top: 10px;
+            color: #3d6b5d;
+        }
+
+        .btn {
+            background: var(--button-color);
+            color: var(--button-text);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+        }
+
+        .journal-list {
+            margin-top: 35px;
+            text-align: left;
+        }
+
+        .journal-list h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #3d6b5d;
+        }
+
+        .journal-item {
+            background: var(--primary-color);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .journal-item p {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .journal-item h3 span {
+            float: right;
+            font-size: 0.9em;
+            color: #3d6b5d;
+        }
+
+        .hapus-btn {
+            background: #f8d7da;
+            border: none;
+            color: #a33;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 8px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .hapus-btn:hover {
+            background: #f1b0b7;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            font-size: 14px;
+            color: #4b5d52;
+            border-top: 1px solid #e5e5e5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" alt="Logo" />
+        </div>
+
+        <!-- HAMBURGER -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="navMenu">
+            <a href="easespace.html" class="nav-link">Home</a>
+            <a href="selfcare.html" class="nav-link">Self-Care</a>
+            <a href="4sehat.html" class="nav-link">EatWell</a>
+            <a href="artikel.html" class="nav-link">Artikel</a>
+            <a href="index.html" class="nav-link">Ease Space</a>
+        </nav>
+    </header>
+
+    <main class="journey-container">
+        <h1>Catatan Perjalanan Harian</h1>
+        <p>Tulis perasaanmu hari ini dan lihat bagaimana perjalanan self-love kamu berkembang.</p>
+
+        <form id="journalForm" class="journal-form">
+            <input type="text" id="judul" placeholder="Judul catatan..." required>
+            <textarea id="isi" rows="5" placeholder="Tulis ceritamu di sini..." required></textarea>
+
+            <label for="mood">Mood Hari Ini:</label>
+            <select id="mood" required>
+                <option value="">-- Pilih Mood --</option>
+                <option value="😊 Bahagia">😊 Bahagia</option>
+                <option value="😔 Sedih">😔 Sedih</option>
+                <option value="😤 Stres">😤 Stres</option>
+                <option value="😌 Tenang">😌 Tenang</option>
+                <option value="❤️ Bersyukur">❤️ Bersyukur</option>
+            </select>
+
+            <button type="submit" class="btn">Simpan Catatan</button>
+        </form>
+
+        <div class="journal-list">
+            <h2>Riwayat Catatan</h2>
+            <div id="journalList">
+                <p>Belum ada catatan...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Self-Love Journey | By EASEY Group</p>
+    </footer>
+
+    <script>
+        // Hamburger Menu JS
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('show');
+        });
+
+        // Tutup dropdown jika klik di luar
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('show');
+            }
+        });
+
+        // Journal Logic
+        const form = document.getElementById("journalForm");
+        const list = document.getElementById("journalList");
+        let journals = JSON.parse(localStorage.getItem("journals")) || [];
+
+        function renderJournals() {
+            list.innerHTML = "";
+            if (journals.length === 0) {
+                list.innerHTML = "<p>Belum ada catatan...</p>";
+                return;
+            }
+
+            journals.forEach((j, index) => {
+                const item = document.createElement("div");
+                item.className = "journal-item";
+                item.innerHTML = `
+                    <h3>${j.judul} <span>${j.mood}</span></h3>
+                    <p>${j.isi}</p>
+                    <small>${j.tanggal}</small><br>
+                    <button onclick="hapusCatatan(${index})" class="hapus-btn">🗑 Hapus</button>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const judul = document.getElementById("judul").value.trim();
+            const isi = document.getElementById("isi").value.trim();
+            const mood = document.getElementById("mood").value;
+            const tanggal = new Date().toLocaleString("id-ID");
+
+            if (!judul || !isi || !mood) return;
+
+            const newJournal = { judul, isi, mood, tanggal };
+            journals.push(newJournal);
+            localStorage.setItem("journals", JSON.stringify(journals));
+            form.reset();
+            renderJournals();
+        });
+
+        function hapusCatatan(index) {
+            journals.splice(index, 1);
+            localStorage.setItem("journals", JSON.stringify(journals));
+            renderJournals();
+        }
+
+        renderJournals();
+
+        
+    </script>
+</body>
+</html>

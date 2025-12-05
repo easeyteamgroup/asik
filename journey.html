@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health - EASEY</title>
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+
+  <style>
+    :root {
+      --bg-color: #f8f9f5;
+      --text-color: #2c2c2c;
+      --primary-color: #e3f1e0;
+      --accent-color: #b7d8b2;
+      --button-color: #cfe3cc;
+      --button-text: #1e1e1e;
+      --light-green: #e9f3e7;
+      --border-color: #dfe8da;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      padding: 20px 50px;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: var(--button-color);
+      color: var(--button-text);
+    }
+
+    /* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #2f2f2f;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translateY(8px);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-8px);
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 25px;
+    }
+
+    /* SECTION */
+    .section {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 35px;
+      margin-bottom: 40px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      font-size: 2.6em;
+      margin-bottom: 20px;
+      color: #1f1f1f;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 1.1em;
+      color: #555;
+      margin-bottom: 25px;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    /* GRID LANGKAH */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: var(--light-green);
+      border-radius: 15px;
+      padding: 25px 20px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-number {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #7da87b;
+      margin-bottom: 10px;
+    }
+
+    /* BUTTON */
+    .btn {
+      background: var(--button-color);
+      color: var(--button-text);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 25px;
+    }
+
+    .btn:hover {
+      background: var(--accent-color);
+    }
+
+    /* QUOTE BOX */
+    .quote-box {
+      background: var(--light-green);
+      border-left: 8px solid var(--accent-color);
+      padding: 25px;
+      font-style: italic;
+      color: #444;
+      border-radius: 12px;
+      margin-top: 25px;
+      transition: opacity 0.3s ease;
+    }
+
+    /* CHECKLIST */
+    .checklist-item {
+      background: #fff;
+      padding: 14px 20px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .checklist-item:hover {
+      background: var(--light-green);
+    }
+
+    .checklist-item.checked {
+      background: var(--accent-color);
+      border-left: 4px solid #7da87b;
+    }
+
+    .progress-bar {
+      height: 20px;
+      border-radius: 10px;
+      background: var(--light-green);
+      overflow: hidden;
+      margin-top: 15px;
+    }
+
+    .progress-fill {
+      background: var(--accent-color);
+      height: 100%;
+      border-radius: 10px;
+      text-align: center;
+      color: #2c2c2c;
+      font-size: 0.9em;
+      font-weight: 600;
+    }
+
+    /* MOOD */
+    .mood-btn {
+      font-size: 2em;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      opacity: 0.7;
+      margin: 10px;
+    }
+
+    .mood-btn:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 20px;
+      font-size: 14px;
+      color: #4b5d52;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 50px;
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* CONFETTI */
+    .confetti {
+      position: fixed;
+      top: -10px;
+      border-radius: 50%;
+      animation: fall 3s ease-in forwards;
+      opacity: 0.9;
+      z-index: 999;
+    }
+
+    @keyframes fall {
+      0% {transform: translateY(0) rotate(0deg); opacity: 1;}
+      100% {transform: translateY(100vh) rotate(720deg); opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" alt="Logo" />
+    </div>
+
+    <nav id="navMenu">
+      <a href="easespace.html" class="nav-link">Back To Home</a>
+    </nav>
+
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>Self-Love Journey</h1>
+    <p class="subtitle">"Self-love bukan tentang ego, tapi tentang menghargai dirimu sendiri, memperhatikan kebutuhanmu, dan memberi dirimu izin untuk bahagia."</p>
+
+    <div class="section">
+      <h2>Langkah-Langkah Self-Love</h2>
+      <div class="steps-grid">
+        <div class="card"><div class="card-number">1</div><h3>Menyayangi Tubuhmu</h3><p>Cukup tidur, makan sehat, bergerak, dan istirahat saat lelah.</p></div>
+        <div class="card"><div class="card-number">2</div><h3>Menghargai Pikiran & Perasaan</h3><p>Catat perasaanmu di jurnal, jangan menekan emosi.</p></div>
+        <div class="card"><div class="card-number">3</div><h3>Waktu untuk Diri Sendiri</h3><p>Ambil waktu untuk hobi, meditasi, atau sekadar menikmati teh.</p></div>
+        <div class="card"><div class="card-number">4</div><h3>Berbicara Positif pada Diri</h3><p>Ganti "Aku nggak bisa" menjadi "Aku sedang belajar".</p></div>
+        <div class="card"><div class="card-number">5</div><h3>Memaafkan Diri</h3><p>Jangan terlalu keras pada diri sendiri, kamu manusia, bukan robot.</p></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Quote Inspiratif Hari Ini</h2>
+      <div class="quote-box" id="quoteBox">"Setiap hari aku belajar mencintai diriku, langkah demi langkah."</div>
+      <button class="btn" onclick="changeQuote()">Quote Baru</button>
+    </div>
+
+    <div class="section">
+      <h2>Self-Care Checklist Harian</h2>
+      <ul id="checklist">
+        <li class="checklist-item" onclick="toggleCheck(this)">Tidur cukup (7-8 jam)</li>
+        <li class="checklist-item" onclick="toggleCheck(this)">Makan makanan bergizi</li>
+        <li class="checklist-item" onclick="toggleCheck(this)">Bergerak atau olahraga ringan</li>
+        <li class="checklist-item" onclick="toggleCheck(this)">Menulis jurnal atau refleksi</li>
+        <li class="checklist-item" onclick="toggleCheck(this)">Melakukan hobi yang disukai</li>
+        <li class="checklist-item" onclick="toggleCheck(this)">Berbicara positif pada diri sendiri</li>
+      </ul>
+      <p><strong>Progress Hari Ini:</strong></p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%;">0%</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Bagaimana Perasaanmu Hari Ini?</h2>
+      <div style="text-align:center;">
+        <span class="mood-btn" onclick="selectMood(this)">😄</span>
+        <span class="mood-btn" onclick="selectMood(this)">😊</span>
+        <span class="mood-btn" onclick="selectMood(this)">😐</span>
+        <span class="mood-btn" onclick="selectMood(this)">😔</span>
+        <span class="mood-btn" onclick="selectMood(this)">😢</span>
+      </div>
+      <p id="moodMessage" style="text-align:center; margin-top:20px; font-style:italic;"></p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Self-Love Journey | By EASEY Group
+  </footer>
+
+  <script>
+    // Navbar Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navMenu.classList.toggle('active');
+    });
+
+    // Quotes
+    const quotes = [
+      "Setiap hari aku belajar mencintai diriku, langkah demi langkah.",
+      "Self-love itu latihan, bukan tujuan instan.",
+      "Kamu layak mendapat cinta, terutama dari dirimu sendiri.",
+      "Mencintai diri sendiri adalah awal dari romansa seumur hidup.",
+      "Kamu tidak perlu sempurna untuk layak dicintai.",
+      "Menjaga diri sendiri bukanlah egois, tapi kebutuhan."
+    ];
+
+    function changeQuote() {
+      const box = document.getElementById('quoteBox');
+      const newQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      box.style.opacity = '0';
+      setTimeout(() => {
+        box.textContent = `"${newQuote}"`;
+        box.style.opacity = '1';
+      }, 300);
+    }
+
+    // Checklist
+    let checkedCount = 0;
+    const totalItems = 6;
+
+    function toggleCheck(item) {
+      item.classList.toggle('checked');
+      checkedCount = document.querySelectorAll('.checklist-item.checked').length;
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const percent = Math.round((checkedCount / totalItems) * 100);
+      const fill = document.getElementById('progressFill');
+      fill.style.width = percent + '%';
+      fill.textContent = percent + '%';
+      
+      if (percent === 100) {
+        showCelebration();
+      }
+    }
+
+    // Mood Tracker
+    function selectMood(el) {
+      document.querySelectorAll('.mood-btn').forEach(btn => btn.classList.remove('selected'));
+      el.classList.add('selected');
+      const moods = {
+        '😄': 'Luar biasa! Teruskan energi positif ini! ✨',
+        '😊': 'Senang mendengarnya! Kamu luar biasa hari ini! 🌟',
+        '😐': 'Tidak apa-apa merasa biasa saja. Besok hari baru 🌈',
+        '😔': 'Tidak apa-apa merasa sedih. Peluk dirimu 🤗',
+        '😢': 'Aku di sini untukmu. Ini hanya sementara 💙'
+      };
+      document.getElementById('moodMessage').textContent = moods[el.textContent];
+    }
+
+    // === CELEBRATION ===
+    function showCelebration() {
+      const popup = document.createElement('div');
+      popup.innerHTML = "<b>Selamat!</b><br>Kamu berhasil menyelesaikan semuanya hari ini!";
+      Object.assign(popup.style, {
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        background: "#ffffff",
+        padding: "30px 50px",
+        borderRadius: "20px",
+        boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+        textAlign: "center",
+        fontSize: "18px",
+        color: "#396b45",
+        zIndex: "999",
+        opacity: "0",
+        transition: "opacity 0.4s ease"
+      });
+      document.body.appendChild(popup);
+      setTimeout(() => popup.style.opacity = "1", 100);
+
+      // Confetti animasi
+      for (let i = 0; i < 30; i++) {
+        const conf = document.createElement('div');
+        conf.classList.add('confetti');
+        conf.style.left = Math.random() * 100 + "%";
+        conf.style.background = ["#b6e2b5", "#e3f1e0", "#cfe3cc", "#ffffff"][Math.floor(Math.random() * 4)];
+        conf.style.width = conf.style.height = Math.random() * 8 + 6 + "px";
+        conf.style.animationDelay = Math.random() * 0.5 + "s";
+        document.body.appendChild(conf);
+        setTimeout(() => conf.remove(), 3500);
+      }
+
+      setTimeout(() => popup.remove(), 4000);
+    }
+  </script>
+</body>
+</html>

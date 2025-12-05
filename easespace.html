@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Self Route Journey - EASEY</title>
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+
+  <style>
+    :root {
+      --bg-color: #f8f9f5;
+      --text-color: #2c2c2c;
+      --primary-color: #e3f1e0;
+      --accent-color: #b7d8b2;
+      --button-color: #cfe3cc;
+      --button-hover: #b7d8b2;
+      --button-text: #1e1e1e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 40px;
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo img {
+      height: 55px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: var(--button-color);
+      color: var(--button-text);
+    }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: #333;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* RESPONSIVE MENU - KECIL */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 0;
+        gap: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e0e0e0;
+        width: 200px;
+        transform: scale(0.8);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+
+      nav.active {
+        transform: scale(1);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 1rem;
+      }
+
+      .logo img {
+        height: 45px;
+      }
+    }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    main h1 {
+      font-size: 2.5rem;
+      color: #2c2c2c;
+      margin-bottom: 16px;
+    }
+
+    main span {
+      color: #3d6b5d;
+      font-weight: 600;
+    }
+
+    main p {
+      font-size: 1.1rem;
+      color: #4b5d52;
+      max-width: 600px;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .btn {
+      background: var(--button-color);
+      color: var(--button-text);
+      padding: 12px 28px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--button-hover);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 20px;
+      font-size: 14px;
+      color: #4b5d52;
+      border-top: 1px solid #e5e5e5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" alt="Logo" />
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="navMenu">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="selfcare.html" class="nav-link">Self-Care</a>
+      <a href="4sehat.html" class="nav-link">EatWell</a>
+      <a href="artikel.html" class="nav-link">Artikel</a>
+      <a href="index.html" class="nav-link">Ease Space</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Selamat Datang di <span>The Self Route Journey EASEY</span></h1>
+    <p>Tempat untuk menumbuhkan cinta diri, menjaga kesehatan mental, dan menemukan ketenangan batinmu.</p>
+    <a href="Journey2.html" class="btn">Mulai Perjalanan</a>
+  </main>
+
+  <footer>
+    © 2025 Self-Love Journey | By EASEY Group
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

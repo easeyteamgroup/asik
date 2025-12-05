@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💗 Merawat Diri sebagai Bentuk Self-Love - EASEY</title>
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+
+  <style>
+    /* === RESET DASAR === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* === VARIABEL WARNA === */
+    :root {
+      --bg-color: #f9fbf8;
+      --text-color: #2d3e35;
+      --accent-color: #a5cba0;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    /* === BODY === */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* === HEADER === */
+    header {
+      background: #fff;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img {
+      height: 55px;
+      width: auto;
+    }
+
+    /* === NAVBAR === */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #355c4d;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 25px;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    /* === MENU TOGGLE === */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      background: #355c4d;
+      height: 3px;
+      width: 25px;
+      border-radius: 5px;
+    }
+
+    /* === ARTIKEL === */
+    .article-container {
+      max-width: 900px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 40px 30px;
+      line-height: 1.8;
+    }
+
+    .article-container h1 {
+      font-size: 2rem;
+      color: #355c4d;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .article-container h2 {
+      font-size: 1.3rem;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      color: #3c5b48;
+    }
+
+    .article-container p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 18px;
+    }
+
+    .article-container ul {
+      list-style: none;
+      margin: 10px 0 20px 10px;
+    }
+
+    .article-container ul li {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    /* === QUOTE === */
+    .quote {
+      font-style: italic;
+      background: #f2f8f2;
+      border-left: 5px solid var(--accent-color);
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin: 25px 0;
+      color: #3f5548;
+    }
+
+    /* === BUTTON KEMBALI === */
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: var(--accent-color);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #8bbf86;
+    }
+
+    /* === FOOTER === */
+    footer {
+      text-align: center;
+      background: #fff;
+      padding: 20px;
+      font-size: 14px;
+      color: #4b5d52;
+      border-top: 1px solid #e5e5e5;
+      margin-top: auto;
+    }
+
+    /* === RESPONSIVE DESIGN === */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        background: #fff;
+        flex-direction: column;
+        width: 180px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        display: none;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- === HEADER === -->
+  <header>
+    <div class="logo">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" alt="Logo EASEY" />
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="navMenu">
+      <a href="easespace.html" class="nav-link">Home</a>
+      <a href="selfcare.html" class="nav-link">Self-Care</a>
+      <a href="artikel.html" class="nav-link active">Artikel</a>
+      <a href="index.html" class="nav-link">Ease Space</a>
+    </nav>
+  </header>
+
+  <!-- === KONTEN ARTIKEL === -->
+  <main class="article-container">
+    <h1>💗 Merawat Diri sebagai Bentuk Self-Love</h1>
+
+    <p>Di tengah kesibukan dan tekanan hidup, banyak orang lupa satu hal penting: merawat diri sendiri. Padahal, merawat diri bukan sekadar tentang penampilan atau istirahat, tetapi juga bentuk cinta terhadap diri sendiri (<em>self-love</em>). Ini tentang mengenal diri, menghargai batas, dan memberikan perhatian pada tubuh, pikiran, serta perasaan kita.</p>
+
+    <h2>1. Apa Itu Self-Love?</h2>
+    <p><em>Self-love</em> berarti menerima diri apa adanya, dengan segala kelebihan dan kekurangan. Ini bukan egois, melainkan kesadaran bahwa dirimu juga pantas diperlakukan dengan lembut. Ketika kamu mencintai diri sendiri, kamu belajar untuk tidak terus-menerus membandingkan diri dengan orang lain dan mulai fokus pada pertumbuhan pribadi.</p>
+
+    <h2>2. Merawat Diri Lebih dari Sekadar Fisik</h2>
+    <p>Banyak orang berpikir merawat diri hanya sebatas <em>skincare</em>, olahraga, atau makan sehat. Padahal, <em>self-care</em> mencakup aspek mental dan emosional juga. Beberapa cara sederhana untuk merawat diri antara lain:</p>
+    <ul>
+      <li>🌿 Menjaga pola tidur dan makan, agar tubuh tetap bertenaga.</li>
+      <li>💭 Mengatur waktu istirahat dari media sosial, untuk menenangkan pikiran.</li>
+      <li>🕯️ Menulis jurnal atau berbicara dengan diri sendiri, sebagai bentuk refleksi.</li>
+      <li>☕ Memberi waktu untuk hal-hal yang kamu sukai, seperti membaca, mendengarkan musik, atau berjalan santai.</li>
+    </ul>
+    <p>Merawat diri berarti memperlakukan dirimu seperti seseorang yang kamu sayangi.</p>
+
+    <h2>3. Mengapa Self-Love Itu Penting</h2>
+    <p>Tanpa mencintai diri sendiri, kita mudah kehilangan arah dan harga diri. Rasa tidak cukup baik, takut gagal, dan kelelahan emosional sering muncul karena kita terlalu keras pada diri sendiri. <em>Self-love</em> membantu kita membangun ketenangan batin, mengenali batas kemampuan, dan menerima bahwa kita tidak harus sempurna untuk berharga.</p>
+
+    <h2>4. Self-Love Bukan Tentang Egois</h2>
+    <p>Beberapa orang merasa bersalah saat memilih diri sendiri terlebih dahulu. Padahal, mencintai diri tidak berarti melupakan orang lain, justru sebaliknya. Semakin kita baik pada diri sendiri, semakin besar kemampuan kita untuk berbuat baik pada orang lain. Kamu tidak bisa menuangkan air dari cangkir yang kosong, bukan?</p>
+
+    <div class="quote">
+    Merawat diri adalah bentuk penghargaan tertinggi atas hidup yang kamu jalani. Ini bukan kemewahan, tapi kebutuhan. Berhentilah sejenak, tarik napas, dan tanyakan pada diri: <em>“Apa yang aku butuhkan hari ini agar merasa tenang?”</em><br><br>
+    Jawabannya bisa sesederhana tidur cukup, minum air, atau memberi waktu untuk diam. Karena mencintai diri tidak selalu harus besar, yang penting, tulus dan konsisten.<br><br>
+
+      🌸 “Cintai dirimu seperti kamu ingin dicintai orang lain, penuh sabar, lembut, dan apa adanya.”
+    </div>
+
+    <a href="artikel.html" class="back-btn">← Kembali ke Artikel</a>
+  </main>
+
+  <!-- === FOOTER === -->
+  <footer>
+    <p>© 2025 Self-Love Journey | By EASEY Group</p>
+  </footer>
+
+  <!-- === JAVASCRIPT UNTUK MENU === -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

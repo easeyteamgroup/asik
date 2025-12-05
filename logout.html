@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Back To Home</title>
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background-color: #f6fbf8; /* hijau-putih lembut */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #2f4f4f;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #2a2a2a;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    p {
+      color: #4a6b57;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    button {
+      background-color: #cce5d1;
+      border: none;
+      color: #1e2d21;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #b8dbbe;
+      transform: translateY(-2px);
+    }
+
+    /* Responsif untuk layar kecil */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.6rem; }
+      p { font-size: 0.9rem; }
+      button { padding: 10px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Anda Telah Logout</h1>
+    <p>Terima kasih telah menggunakan sistem kami.</p>
+    <button onclick="goToHome()">Pergi Ke Beranda</button>
+  </div>
+
+  <script>
+    /* ===================================
+       CLEAR LOCAL STORAGE DATA ON LOGOUT
+    ===================================== */
+    // Hapus semua data lokal (checklist, catatan, siklus haid, dll)
+    localStorage.clear();
+
+    // (Opsional) kalau kamu cuma mau hapus data tertentu, bisa pakai:
+    // localStorage.removeItem("loggedInUser");
+    // localStorage.removeItem("notes");
+    // localStorage.removeItem("checklistState");
+    // localStorage.removeItem("lastPeriod");
+    // localStorage.removeItem("cycleLength");
+
+    // Redirect tombol ke halaman utama
+    function goToHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>

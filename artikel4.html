@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌿 Motivasi Saat Kamu Lelah dan Ingin Menyerah - EASEY</title>
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+
+  <style>
+    /* === RESET DASAR === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* === VARIABEL WARNA UTAMA === */
+    :root {
+      --bg-color: #f9fbf8;
+      --text-color: #2d3e35;
+      --accent-color: #a5cba0;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    /* === BODY === */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* === HEADER DAN NAVBAR === */
+    header {
+      background: #fff;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img {
+      height: 55px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #355c4d;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 25px;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: var(--accent-color);
+      color: #fff;
+    }
+
+    /* === MENU TOGGLE (HAMBURGER) === */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      background: #355c4d;
+      height: 3px;
+      width: 25px;
+      border-radius: 5px;
+    }
+
+    /* === KONTEN ARTIKEL === */
+    .article-container {
+      max-width: 900px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 40px 30px;
+      line-height: 1.8;
+    }
+
+    .article-container h1 {
+      font-size: 2rem;
+      color: #355c4d;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .article-meta {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .article-container p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e5e5e5;
+      margin: 20px 0;
+    }
+
+    .quote {
+      font-style: italic;
+      background: #f2f8f2;
+      border-left: 5px solid var(--accent-color);
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin: 25px 0;
+      color: #3f5548;
+    }
+
+    /* === TOMBOL KEMBALI === */
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: var(--accent-color);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #8bbf86;
+    }
+
+    /* === FOOTER === */
+    footer {
+      text-align: center;
+      background: #fff;
+      padding: 20px;
+      font-size: 14px;
+      color: #4b5d52;
+      border-top: 1px solid #e5e5e5;
+      margin-top: auto;
+    }
+
+    /* === RESPONSIVE DESIGN === */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        background: #fff;
+        flex-direction: column;
+        width: 180px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        display: none;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- === HEADER === -->
+  <header>
+    <div class="logo">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" alt="Logo EASEY">
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="navMenu">
+      <a href="easespace.html" class="nav-link">Home</a>
+      <a href="selfcare.html" class="nav-link">Self-Care</a>
+      <a href="artikel.html" class="nav-link active">Artikel</a>
+      <a href="index.html" class="nav-link">Ease Space</a>
+    </nav>
+  </header>
+
+  <!-- === ISI ARTIKEL === -->
+  <main class="article-container">
+    <h1>🌿 Motivasi Saat Kamu Lelah dan Ingin Menyerah</h1>
+
+    <p>Setiap orang pasti pernah merasa lelah, bukan hanya secara fisik, tapi juga batin. Ada hari-hari di mana semuanya terasa berat: tugas menumpuk, harapan terasa jauh, dan semangat perlahan pudar. Rasanya ingin berhenti, menyerah, dan menghilang sejenak dari semuanya. Tapi percayalah, rasa lelah itu bukan tanda kamu gagal, melainkan tanda bahwa kamu sudah berjuang sejauh ini.</p>
+
+    <div class="divider"></div>
+
+    <h2>1. Wajar Jika Kamu Merasa Lelah</h2>
+    <p>Tidak apa-apa untuk merasa lelah. Kamu manusia, bukan mesin. Terlalu menuntut diri untuk selalu kuat justru bisa membuatmu kehilangan arah. Kadang, berhenti sejenak bukan bentuk menyerah, tapi cara terbaik untuk mengisi ulang tenaga dan semangat.</p>
+    <p>Ingatlah, bahkan langit pun tak selalu cerah. Ada hujan, ada badai, tapi semuanya berlalu. Begitu juga dengan perasaanmu saat ini, yang suatu hari nanti akan mereda.</p>
+
+    <h2>2. Lihat Kembali Seberapa Jauh Kamu Melangkah</h2>
+    <p>Ketika ingin menyerah, coba tengok ke belakang. Lihat semua yang sudah kamu lewati: tantangan, air mata, dan perjuangan kecil yang dulu kamu anggap mustahil. Kamu masih di sini, dan itu bukti bahwa kamu lebih kuat dari yang kamu kira.</p>
+    <p>Terkadang, tujuan terasa terlalu jauh hanya karena kamu lupa menghargai langkah-langkah kecilmu.</p>
+
+    <h2>3. Fokus pada Proses, Bukan Hasil</h2>
+    <p>Kegelisahan sering muncul karena kita ingin segalanya berjalan cepat. Tapi hidup bukan perlombaan. Nikmati setiap proses, bahkan yang menyakitkan, karena di sanalah kamu tumbuh.</p>
+    <p>Tidak apa-apa jika belum berhasil hari ini. Yang penting, kamu masih mau mencoba lagi besok.</p>
+
+    <h2>4. Izinkan Dirimu Istirahat</h2>
+    <p>Jika tubuh dan pikiranmu mulai menolak, mungkin bukan waktunya menyerah, tapi waktunya istirahat. Tidurlah dengan tenang, tarik napas dalam-dalam, dan biarkan dirimu bernapas tanpa beban.</p>
+    <p>Kamu tidak harus produktif setiap saat. Kadang, bertahan saja sudah cukup luar biasa.</p>
+
+    <h2>5. Ingat! Kamu Tidak Sendiri</h2>
+    <p>Ada banyak orang yang sayang dan peduli padamu, tetapi tidak kamu sadari. Ada yang mendoakanmu diam-diam, ada yang menunggu kabarmu, ada yang memastikan apa kamu makan dengan baik hari ini.</p>
+    <p>Jangan biarkan rasa lelah menutup matamu dari cinta dan dukungan yang ada di sekitarmu.</p>
+
+    <div class="quote">
+    Saat kamu lelah dan ingin menyerah, ingatlah: ini hanya satu bab dalam perjalanan panjang hidupmu. Kamu boleh berhenti sebentar, tapi jangan menyerah selamanya.<br><br>
+    Karena di balik setiap rasa sakit, selalu ada pelajaran. Dan di balik setiap kejatuhan, selalu ada kesempatan untuk bangkit.<br><br>
+
+      🌻 “Pelan-pelan tidak apa-apa. Yang penting, kamu tidak berhenti.”
+    </div>
+
+    <a href="artikel.html" class="back-btn">← Kembali ke Artikel</a>
+  </main>
+
+  <!-- === FOOTER === -->
+  <footer>
+    <p>© 2025 Self-Love Journey | By EASEY Group</p>
+  </footer>
+
+  <!-- === JAVASCRIPT UNTUK MENU MOBILE === -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

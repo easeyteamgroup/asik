@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Health - EASEY</title>
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" type="image/png">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background-color: #fafdfb;
+      color: #2f2f2f;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      padding: 25px 60px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #e0e0e0;
+      position: relative;
+    }
+
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: #cfe8d5;
+      color: #1c2d1f;
+    }
+
+    /* Tombol hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #2f2f2f;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* MAIN SECTION */
+    main {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 80px;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .left-content {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .left-content h1 {
+      font-size: 48px;
+      color: #1c2d1f;
+      margin-bottom: 15px;
+    }
+
+    .left-content p {
+      color: #4b5d52;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .btn-start {
+      background-color: #cfe8d5;
+      color: #1c2d1f;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 15px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-start:hover {
+      background-color: #b5dec0;
+    }
+
+    .illustration {
+      flex: 1;
+      text-align: center;
+      min-width: 280px;
+    }
+
+    .illustration img {
+      width: 100%;
+      max-width: 380px;
+    }
+
+    /* JOURNEY SECTION */
+    .journey-section {
+      background-color: #f5fbf7;
+      padding: 60px 80px;
+      text-align: center;
+    }
+
+    .journey-section h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .journey-section p {
+      color: #4b5d52;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .view-btn {
+      background-color: #cfe8d5;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .view-btn:hover {
+      background-color: #b5dec0;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 20px;
+      font-size: 14px;
+      color: #4b5d52;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    /* RESPONSIVE NAVBAR */
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 60px;
+        background: #fafdfb;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      main {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2XCN9vV9Tw3kOitPFnwtyiyVV50_O4PfFn_7-_kVf452Y-W-xn73eIfD_74veZKIHh3qcebikjp2DmtvglHTZis4_zZDVZdoS49eXoCVOK-An7U_aDj619rfmdNSLcWx3rdcaq5FIKF0EiMO_LfY-0m-O6WxVbXgCchEfcIe2MaWX7nbDDCFOjtCMkf8/s320/logo.png" alt="Logo" />
+    </div>
+
+    <nav id="navMenu">
+      <a href="easespace.html" class="nav-link">Home</a> 
+      <a href="index.html" class="nav-link">Ease Space</a>
+      <a href="login.html" class="nav-link">Login</a>
+      <a href="logout.html" class="nav-link">Logout</a>
+    </nav>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <main>
+    <div class="left-content">
+      <h1>Chat with NisaaTalk</h1>
+      <p>Jelajahi perasaan dan pikiranmu bersama NisaaTalk yang selalu siap mendengarkan dan memahami dirimu 🌿</p>
+      <a href="chatbot-ai/chatbot-ai.html"><button class="btn-start">Get Started</button></a>
+    </div>
+
+    <div class="illustration">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6-CpwkM1XV_jpqwt6sfudGiTbks_AtDViju9Sk-xev0l44AnztEHkx3dzPu05dC7CXqOFvYoeIfz0ALXVrNbB2o9EdT1yNYTvTPxftmRTPYhjiKJnMkgJuRvsbSy_JSI-_vte38qgYoeosuoQGKpENl1TbZsJToR_Ft4r4aRWqZCU5XK1TFdmmXcdd3s/s320/banner.png" alt="Illustration">
+    </div>
+  </main>
+
+  <section class="journey-section">
+    <h2>Your Journey</h2>
+    <p>Yuk, pantau perkembangan dirimu dan renungkan setiap pengalaman yang membentuk versi terbaik dari dirimu! 🌱</p>
+    <a href="journey.html"><button class="view-btn">View Journey</button></a>
+  </section>
+
+  <footer>
+    &copy; 2025 Self-Love Journey | By EASEY Group
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      hamburger.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
