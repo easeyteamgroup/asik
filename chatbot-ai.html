@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Bot - EASEY</title>
+
+  <style>
+    :root {
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 30px;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 60px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: #cfe8d5;
+      color: #1c2d1f;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #2f2f2f;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .nisaa-section {
+      margin-top: 0;
+      padding: 40px 20px;
+      background-color: #f3f8f4;
+      border-radius: 20px;
+      text-align: center;
+      transition: background 0.4s ease;
+    }
+
+    .nisaa-title {
+      font-size: 28px;
+      color: #2f5d46;
+      margin-bottom: 10px;
+    }
+
+    .nisaa-desc {
+      color: #3a6b55;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .chat-container {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      border: 1px solid #dbe6dc;
+      border-radius: 16px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .chat-box {
+      height: 400px;
+      overflow-y: auto;
+      background: #f9fdf9;
+      border-radius: 12px;
+      border: 1px solid #e3efe3;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth;
+    }
+
+    .bubble {
+      padding: 12px 16px;
+      border-radius: 14px;
+      max-width: 75%;
+      line-height: 1.5;
+      font-size: 15px;
+      word-break: break-word;
+      margin: 6px 0;
+      animation: fadeSlide 0.3s ease forwards;
+    }
+
+    .bubble.user {
+      align-self: flex-end;
+      background: #d8ead9;
+      color: #2f5d46;
+      border-bottom-right-radius: 4px;
+    }
+
+    .bubble.bot {
+      align-self: flex-start;
+      background: #edf7ee;
+      color: #2f5d46;
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-form {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .chat-form input {
+      flex: 1;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #c9e0cd;
+      outline: none;
+      background: #ffffff;
+      color: #2f5d46;
+      font-size: 15px;
+      transition: all 0.2s ease;
+    }
+
+    .chat-form input:focus {
+      border-color: #9dc9a5;
+      box-shadow: 0 0 0 3px rgba(157, 201, 165, 0.3);
+    }
+
+    .chat-form button {
+      background: #9dc9a5;
+      color: #2f5d46;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 18px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .chat-form button:hover {
+      background: #a8d5b0;
+      transform: scale(1.05);
+    }
+
+    .chat-form button:active {
+      transform: scale(0.97);
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chat-box::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .chat-box::-webkit-scrollbar-thumb {
+      background: #bcd7c0;
+      border-radius: 6px;
+    }
+
+    .chat-box::-webkit-scrollbar-thumb:hover {
+      background: #a5c7a8;
+    }
+
+    @media (max-width: 600px) {
+      .nisaa-section {
+        padding: 30px 15px;
+      }
+      .chat-box {
+        height: 340px;
+      }
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #ffffff;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+      }
+      nav.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body style="margin:0; padding:0;">
+  <header>
+    <div class="logo">
+      <img src="../assets/images/logo.png" alt="Logo">
+    </div>
+
+    <nav id="navMenu">
+      <a href="../index.html" class="nav-link">Ease Space</a>
+    </nav>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <section id="nisaatalk-chat" class="nisaa-section">
+    <h2 class="nisaa-title">NisaaTalk</h2>
+    <p class="nisaa-desc">
+      Ceritakan apa yang kamu rasakan, NisaaTalk selalu siap mendengarkan
+    </p>
+
+    <div class="chat-container">
+      <div id="chat-box" class="chat-box">
+        <div class="bubble bot fade-in">
+          Hai Aku <strong>NisaaTalk</strong>. Apa kabar hari ini?
+        </div>
+      </div>
+
+      <form id="chat-form" class="chat-form">
+        <input id="user-input" type="text" placeholder="Tulis pesanmu di sini..." required />
+        <button type="submit">Kirim</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      hamburger.classList.toggle('open');
+    });
+
+    const chatBox = document.getElementById("chat-box");
+    const chatForm = document.getElementById("chat-form");
+    const userInput = document.getElementById("user-input");
+
+    function appendMessage(sender, text) {
+      const bubble = document.createElement("div");
+      bubble.className = `bubble ${sender} fade-in`;
+      bubble.innerHTML = text;
+      chatBox.appendChild(bubble);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    async function sendMessage(message) {
+      appendMessage("user", message);
+      userInput.value = "";
+
+      const typing = document.createElement("div");
+      typing.className = "bubble bot fade-in";
+      typing.textContent = "⋯ NisaaTalk sedang menulis...";
+      chatBox.appendChild(typing);
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message }),
+        });
+        const data = await res.json();
+        chatBox.removeChild(typing);
+        appendMessage("bot", data.reply || "Hmm... aku belum bisa menjawab itu sekarang 🌿");
+      } catch {
+        chatBox.removeChild(typing);
+        appendMessage("bot", "⚠️ Maaf, chatbot masih dalam pengembangan...");
+      }
+    }
+
+    chatForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const text = userInput.value.trim();
+      if (!text) return;
+      sendMessage(text);
+    });
+  </script>
+</body>
+</html>
